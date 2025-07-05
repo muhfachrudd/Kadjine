@@ -10,7 +10,7 @@ const ErrorMessage = ({ message, onRetry }) => {
       {onRetry && (
         <button
           onClick={onRetry}
-          className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
+          className="bg-[#0A400C] text-[#FEFAE0] px-4 py-2 rounded-lg hover:bg-[#819067] transition-colors"
         >
           Coba Lagi
         </button>

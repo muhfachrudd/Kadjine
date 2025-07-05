@@ -37,9 +37,9 @@ const OrderConfirmation = () => {
       case 'pending':
         return 'bg-yellow-100 text-yellow-800';
       case 'preparing':
-        return 'bg-blue-100 text-blue-800';
-      case 'ready':
         return 'bg-green-100 text-green-800';
+      case 'ready':
+        return 'bg-green-200 text-green-900';
       case 'completed':
         return 'bg-gray-100 text-gray-800';
       case 'cancelled':
@@ -69,7 +69,7 @@ const OrderConfirmation = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#819067]"></div>
       </div>
     );
   }
@@ -77,10 +77,10 @@ const OrderConfirmation = () => {
   if (!order) {
     return (
       <div className="text-center py-12">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Pesanan Tidak Ditemukan</h2>
+        <h2 className="text-2xl font-semibold text-[#FEFAE0] mb-4">Pesanan Tidak Ditemukan</h2>
         <button
           onClick={() => navigate('/')}
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+          className="bg-[#0A400C] text-[#FEFAE0] px-6 py-3 rounded-lg hover:bg-[#819067] transition-colors"
         >
           Kembali ke Menu
         </button>
@@ -89,53 +89,53 @@ const OrderConfirmation = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto space-y-8">
+    <div className="max-w-2xl mx-auto space-y-6">
       {/* Success Header */}
       <div className="text-center">
-        <CheckCircleIcon className="h-16 w-16 text-green-600 mx-auto mb-4" />
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">Pesanan Berhasil!</h1>
-        <p className="text-gray-600">Pesanan Anda telah diterima dan sedang diproses</p>
+        <CheckCircleIcon className="h-16 w-16 text-[#819067] mx-auto mb-4" />
+        <h1 className="text-3xl font-bold text-[#FEFAE0] mb-2">Pesanan Berhasil!</h1>
+        <p className="text-[#B1AB86]">Pesanan Anda telah diterima dan sedang diproses</p>
       </div>
 
       {/* Order Details */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Detail Pesanan</h2>
+      <div className="bg-[#FEFAE0] rounded-xl shadow-md p-6 border border-[#B1AB86]">
+        <h2 className="text-xl font-semibold text-[#0A400C] mb-4">Detail Pesanan</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <div>
-            <label className="block text-sm font-medium text-gray-500">ID Pesanan</label>
-            <p className="text-lg font-semibold text-gray-800">#{order.id}</p>
+            <label className="block text-sm font-medium text-[#819067]">ID Pesanan</label>
+            <p className="text-lg font-semibold text-[#0A400C]">#{order.id}</p>
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-500">Status</label>
+            <label className="block text-sm font-medium text-[#819067]">Status</label>
             <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(order.status)}`}>
               {getStatusText(order.status)}
             </span>
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-500">Nama Pelanggan</label>
-            <p className="text-lg text-gray-800">{order.customer_name}</p>
+            <label className="block text-sm font-medium text-[#819067]">Nama Pelanggan</label>
+            <p className="text-lg text-[#0A400C]">{order.customer_name}</p>
           </div>
           
           {order.customer_phone && (
             <div>
-              <label className="block text-sm font-medium text-gray-500">No. Telepon</label>
-              <p className="text-lg text-gray-800">{order.customer_phone}</p>
+              <label className="block text-sm font-medium text-[#819067]">No. Telepon</label>
+              <p className="text-lg text-[#0A400C]">{order.customer_phone}</p>
             </div>
           )}
           
           {order.table_number && (
             <div>
-              <label className="block text-sm font-medium text-gray-500">No. Meja</label>
-              <p className="text-lg text-gray-800">{order.table_number}</p>
+              <label className="block text-sm font-medium text-[#819067]">No. Meja</label>
+              <p className="text-lg text-[#0A400C]">{order.table_number}</p>
             </div>
           )}
           
           <div>
-            <label className="block text-sm font-medium text-gray-500">Waktu Pemesanan</label>
-            <p className="text-lg text-gray-800">
+            <label className="block text-sm font-medium text-[#819067]">Waktu Pemesanan</label>
+            <p className="text-lg text-[#0A400C]">
               {new Date(order.created_at).toLocaleString('id-ID')}
             </p>
           </div>
@@ -143,31 +143,31 @@ const OrderConfirmation = () => {
 
         {order.notes && (
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-500 mb-2">Catatan</label>
-            <p className="text-gray-800 bg-gray-50 p-3 rounded-md">{order.notes}</p>
+            <label className="block text-sm font-medium text-[#819067] mb-2">Catatan</label>
+            <p className="text-[#0A400C] bg-[#B1AB86]/20 p-3 rounded-md border border-[#B1AB86]">{order.notes}</p>
           </div>
         )}
       </div>
 
       {/* Order Items */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Item Pesanan</h2>
+      <div className="bg-[#FEFAE0] rounded-xl shadow-md p-6 border border-[#B1AB86]">
+        <h2 className="text-xl font-semibold text-[#0A400C] mb-4">Item Pesanan</h2>
         
         <div className="space-y-4">
           {order.order_items?.map((item) => (
-            <div key={item.id} className="flex justify-between items-center py-3 border-b border-gray-200 last:border-b-0">
+            <div key={item.id} className="flex justify-between items-center py-3 border-b border-[#B1AB86] last:border-b-0">
               <div className="flex-1">
-                <h3 className="font-medium text-gray-800">{item.menu_item?.name}</h3>
-                <p className="text-sm text-gray-600">{item.menu_item?.description}</p>
-                <p className="text-sm text-blue-600 font-medium">
+                <h3 className="font-medium text-[#0A400C]">{item.menu_item?.name}</h3>
+                <p className="text-sm text-[#819067]">{item.menu_item?.description}</p>
+                <p className="text-sm text-[#819067] font-medium">
                   {formatPrice(item.price)} x {item.quantity}
                 </p>
                 {item.notes && (
-                  <p className="text-sm text-gray-500 italic">Catatan: {item.notes}</p>
+                  <p className="text-sm text-[#B1AB86] italic">Catatan: {item.notes}</p>
                 )}
               </div>
               <div className="text-right">
-                <p className="font-semibold text-gray-800">
+                <p className="font-semibold text-[#0A400C]">
                   {formatPrice(item.price * item.quantity)}
                 </p>
               </div>
@@ -175,10 +175,10 @@ const OrderConfirmation = () => {
           ))}
         </div>
 
-        <div className="mt-6 pt-4 border-t border-gray-200">
+        <div className="mt-6 pt-4 border-t border-[#B1AB86]">
           <div className="flex justify-between items-center text-xl font-semibold">
-            <span>Total:</span>
-            <span className="text-blue-600">{formatPrice(order.total_amount)}</span>
+            <span className="text-[#0A400C]">Total:</span>
+            <span className="text-[#819067]">{formatPrice(order.total_amount)}</span>
           </div>
         </div>
       </div>
@@ -187,16 +187,16 @@ const OrderConfirmation = () => {
       <div className="flex justify-center space-x-4">
         <button
           onClick={() => navigate('/')}
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+          className="bg-[#0A400C] text-[#FEFAE0] px-6 py-3 rounded-lg hover:bg-[#819067] transition-colors shadow-md"
         >
           Pesan Lagi
         </button>
       </div>
 
       {/* Order Status Info */}
-      <div className="bg-blue-50 rounded-lg p-6 text-center">
-        <h3 className="font-semibold text-blue-800 mb-2">Informasi Pesanan</h3>
-        <p className="text-blue-700 text-sm">
+      <div className="bg-[#B1AB86]/20 rounded-xl p-6 text-center border border-[#B1AB86]">
+        <h3 className="font-semibold text-[#0A400C] mb-2">Informasi Pesanan</h3>
+        <p className="text-[#819067] text-sm">
           Silakan tunggu, pesanan Anda sedang diproses. 
           Anda dapat menunjukkan ID pesanan #{order.id} kepada pelayan untuk konfirmasi.
         </p>
