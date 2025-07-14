@@ -60,7 +60,6 @@ const Cart = () => {
   if (items.length === 0) {
     return (
       <div className="text-center py-16">
-        <div className="text-8xl mb-6 opacity-50 float">🛒</div>
         <h2 className="text-3xl font-semibold text-white mb-4">Keranjang Kosong</h2>
         <p className="text-white/60 mb-8 text-lg">Belum ada item yang ditambahkan ke keranjang</p>
         <button
@@ -74,7 +73,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8">
+    <div className="max-w-6xl mx-auto space-y-8 mt-12">
       <h1 className="text-4xl font-bold text-indigo-300 text-center">
         Keranjang Belanja
       </h1>
