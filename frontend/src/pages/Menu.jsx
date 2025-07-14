@@ -102,13 +102,13 @@ const Menu = () => {
       </div>
 
       {/* Menu Items Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredItems.map((item) => (
           <div
             key={item.id}
-            className="glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-105 hover-glow group"
+            className="glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-105 hover-glow group flex flex-col h-full"
           >
-            <div className="h-40 bg-indigo-600/20 flex items-center justify-center relative overflow-hidden">
+            <div className="h-48 bg-indigo-600/20 flex items-center justify-center relative overflow-hidden">
               {item.image ? (
                 <img
                   src={item.image}
@@ -116,38 +116,40 @@ const Menu = () => {
                   className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
               ) : (
-                <div className="text-6xl opacity-50 group-hover:scale-110 transition-transform duration-300">
-                  ☕
+                <div className="text-7xl opacity-50 group-hover:scale-110 transition-transform duration-300">
+                 Rawrr
                 </div>
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
 
-            <div className="p-4">
+            <div className="p-5 flex flex-col flex-grow">
               <div className="mb-3">
-                <h3 className="text-sm font-semibold text-white leading-tight mb-2">
-                  {item.name}
-                </h3>
-                <span className="text-lg font-bold text-emerald-400">
+                <div className="flex items-start justify-between mb-2 gap-2">
+                  <h3 className="text-lg font-bold text-white leading-tight flex-1">
+                    {item.name}
+                  </h3>
+                  <span className="text-xs text-indigo-300 glass px-2 py-1 rounded-full whitespace-nowrap flex-shrink-0">
+                    {item.category?.name}
+                  </span>
+                </div>
+                <span className="text-xl font-bold text-emerald-400">
                   {formatPrice(item.price)}
                 </span>
               </div>
 
-              <p className="text-white/70 text-xs mb-4 line-clamp-2">
+              <p className="text-white/70 text-sm mb-4 line-clamp-3 flex-grow">
                 {item.description}
               </p>
 
-              <div className="flex justify-between items-center">
-                <span className="text-xs text-indigo-300 glass px-3 py-1 rounded-full">
-                  {item.category?.name}
-                </span>
+              <div className="flex flex-col gap-3 mt-auto">
 
                 <button
                   onClick={() => handleAddToCart(item)}
-                  className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center gap-2 text-xs font-medium hover:scale-105"
+                  className="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-3 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium hover:scale-105 w-full"
                 >
-                  <PlusIcon className="h-4 w-4" />
-                  Tambah
+                  <PlusIcon className="h-5 w-5" />
+                  Tambah ke Keranjang
                 </button>
               </div>
             </div>
