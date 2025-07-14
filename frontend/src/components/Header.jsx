@@ -7,37 +7,37 @@ import kadjineLogo from '../assets/images/kadjine.jpg';
 const Header = () => {
   const { getTotalItems } = useCart();
 
-  // Import logo image
-
   return (
-    <header className="bg-black/20 rounded-2xl backdrop-blur-sm">
-      <div className="container mx-auto px-4">
+    <header className="glass-dark rounded-2xl shadow-xl">
+      <div className="container mx-auto px-6">
         <div className="flex justify-between items-center py-4">
-          <Link to="/" className="flex mx-2 items-center text-2xl font-bold text-[#0A400C]">
+          <Link to="/" className="flex mx-2 items-center text-2xl font-bold text-white hover:text-indigo-300 transition-colors duration-300">
             <img
               src={kadjineLogo}
               alt="Kadjine Logo"
-              className="h-14 w-14 rounded-xl object-cover mr-2 border-2 border-[#819067] shadow-sm"
+              className="h-14 w-14 rounded-xl object-cover mr-3 border-2 border-indigo-400/50 shadow-lg hover-glow"
             />
-            <span className="ml-1 text-[#0A400C]">Kadjine Coffee</span>
+            <span className="ml-1 text-indigo-300">
+              Kadjine Coffee
+            </span>
           </Link>
           
           <nav className="flex items-center space-x-4 mx-2">
             <Link 
               to="/" 
-              className="px-4 py-2 rounded-lg bg-[#FEFAE0] text-[#0A400C] hover:bg-[#FEFAE0]/30 transition-colors font-medium shadow"
+              className="px-6 py-3 rounded-xl glass text-white hover:glass-card transition-all duration-300 font-medium shadow-lg hover-glow"
             >
               Menu
             </Link>
             
             <Link 
               to="/cart" 
-              className="relative flex items-center px-4 py-2 rounded-lg bg-[#FEFAE0] text-[#0A400C] hover:bg-[#FEFAE0]/30 transition-colors font-medium shadow"
+              className="relative flex items-center px-6 py-3 rounded-xl glass text-white hover:glass-card transition-all duration-300 font-medium shadow-lg hover-glow"
             >
-              <ShoppingCartIcon className="h-6 w-6 mr-1" />
+              <ShoppingCartIcon className="h-5 w-5 mr-2" />
               Cart
               {getTotalItems() > 0 && (
-                <span className="absolute -top-2 -right-2 bg-[#0A400C] text-[#FEFAE0] text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 bg-indigo-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center shadow-lg animate-pulse">
                   {getTotalItems()}
                 </span>
               )}

@@ -11,8 +11,9 @@ function App() {
     <ToastProvider>
       <CartProvider>
         <Router>
-          <div className="min-h-screen bg-[#fdf6ee]">
-            <main className="container mx-auto px-4 py-6">
+          <div className="min-h-screen animated-bg">
+            <div className="absolute inset-0 bg-slate-900/20"></div>
+            <main className="relative container mx-auto px-4 py-6">
               <div className="sticky top-5 z-50 -mx-4 px-4 mb-6">
                 <Header />
               </div>

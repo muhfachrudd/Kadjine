@@ -45,13 +45,13 @@ const ToastProvider = ({ children }) => {
   const getToastStyles = (type) => {
     switch (type) {
       case 'success':
-        return 'bg-green-50 border-green-200 text-green-800';
+        return 'glass-card border-green-400/30 text-green-300';
       case 'error':
-        return 'bg-red-50 border-red-200 text-red-800';
+        return 'glass-card border-red-400/30 text-red-300';
       case 'warning':
-        return 'bg-yellow-50 border-yellow-200 text-yellow-800';
+        return 'glass-card border-yellow-400/30 text-yellow-300';
       default:
-        return 'bg-blue-50 border-blue-200 text-blue-800';
+        return 'glass-card border-blue-400/30 text-blue-300';
     }
   };
 
@@ -60,11 +60,11 @@ const ToastProvider = ({ children }) => {
       {children}
       
       {/* Toast Container */}
-      <div className="fixed top-4 right-4 space-y-2 z-50">
+      <div className="fixed top-4 right-4 space-y-3 z-50">
         {toasts.map((toast) => (
           <div
             key={toast.id}
-            className={`flex items-center p-4 rounded-lg border shadow-lg transform transition-all duration-300 ${getToastStyles(toast.type)}`}
+            className={`flex items-center p-4 rounded-xl shadow-xl transform transition-all duration-300 hover-glow ${getToastStyles(toast.type)}`}
           >
             <div className="flex-shrink-0">
               {getIcon(toast.type)}
@@ -74,7 +74,7 @@ const ToastProvider = ({ children }) => {
             </div>
             <button
               onClick={() => removeToast(toast.id)}
-              className="ml-4 inline-flex text-gray-400 hover:text-gray-600 focus:outline-none"
+              className="ml-4 inline-flex text-white/60 hover:text-white focus:outline-none transition-colors"
             >
               <XMarkIcon className="h-4 w-4" />
             </button>
