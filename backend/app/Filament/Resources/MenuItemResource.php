@@ -58,7 +58,9 @@ class MenuItemResource extends Resource
                         Forms\Components\FileUpload::make('image')
                             ->label('Gambar')
                             ->image()
+                            ->disk('public')
                             ->directory('menu-images')
+                            ->visibility('public')
                             ->columnSpanFull(),
                     ])->columns(2),
             ]);
@@ -70,6 +72,7 @@ class MenuItemResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
                     ->label('Gambar')
+                    ->disk('public')
                     ->circular(),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nama Menu')

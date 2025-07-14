@@ -109,9 +109,9 @@ const Menu = () => {
             className="glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-105 hover-glow group flex flex-col h-full"
           >
             <div className="h-48 bg-indigo-600/20 flex items-center justify-center relative overflow-hidden">
-              {item.image ? (
+              {item.image_url ? (
                 <img
-                  src={item.image}
+                  src={item.image_url}
                   alt={item.name}
                   className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -146,7 +146,7 @@ const Menu = () => {
 
                 <button
                   onClick={() => handleAddToCart(item)}
-                  className="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-3 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium hover:scale-105 w-full"
+                  className="bg-indigo-700 hover:bg-indigo-500 text-white px-5 py-3 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm font-medium hover:scale-105 w-full"
                 >
                   <PlusIcon className="h-5 w-5" />
                   Tambah ke Keranjang

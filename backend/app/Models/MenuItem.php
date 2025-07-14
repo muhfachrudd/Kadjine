@@ -22,6 +22,17 @@ class MenuItem extends Model
         'is_available' => 'boolean',
     ];
 
+    protected $appends = ['image_url'];
+
+    public function getImageUrlAttribute(): ?string
+    {
+        if ($this->image) {
+            return asset('storage/' . $this->image);
+        }
+        
+        return null;
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);

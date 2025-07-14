@@ -93,7 +93,7 @@ const OrderConfirmation = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-4xl mx-auto space-y-8 mt-10">
       {/* Success Header */}
       <div className="text-center">
         <div className="relative inline-block mb-6">
